@@ -164,6 +164,10 @@ void algo_LSHADE::RunALG(int _dim, int _pop_size, double _mCR, double _mF, doubl
 			ref(best_fit_record),
 			ref(eva_fit_record));
 	}
+	// 等待所有 thread 結束
+	for (auto& t : threads) {
+		t.join();
+	}
 
 	// 輸出結果
 	double avg_best_fit = accumulate(best_fit_record.begin(), best_fit_record.end(), 0.0) / run;

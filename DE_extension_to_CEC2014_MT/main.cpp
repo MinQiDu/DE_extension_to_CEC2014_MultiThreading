@@ -1,7 +1,7 @@
 #include "DE.h"
 #include "JADE.h"
 #include "SHADE.h"
-//#include "LSHADE.h"
+#include "LSHADE.h"
 #include <string>
 #include <iostream>
 
@@ -72,13 +72,13 @@ int main(int argc, char* argv[])
 			algo_SHADE algo;
 			algo.RunALG(dim, pop_size, mCR, mF, c, p, func_id, archive_flag);
 		}
-		/*else if (algo_type == "LSHADE")
+		else if (algo_type == "LSHADE")
 		{
 			cout << "algo_type = " << algo_type << " | func_id = " << func_id << " | dim = " << dim << " | pop_size = " << pop_size <<
 				" | mCR = " << mCR << " | mF = " << mF << " | MCR & MF size = " << c << " | p = " << p << " | w/o archive list = " << (archive_flag ? "true" : "false") << endl;
 			algo_LSHADE algo;
 			algo.RunALG(dim, pop_size, mCR, mF, c, p, func_id, archive_flag);
-		}*/
+		}
 		else
 		{
 			cout << "Invalid algorithm type. Please enter DE, JADE, SHADE or LSHADE." << endl;
