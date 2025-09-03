@@ -96,7 +96,9 @@ void LSHADE_FileOutput(
 		for (int r = 0; r < run; ++r) {
 			avg_fit += eva_fit_record[r][t];
 		}
-		LSHADE_fitness_cvg_avg_file << avg_fit / run << "\n"; // 寫入平均值
+		double avg = avg_fit / run;
+		if (avg < 1e-99) avg = 1e-60; // 0 轉化為 1e-60 避免 logscale 時出錯
+		LSHADE_fitness_cvg_avg_file << avg / run << "\n"; // 寫入平均值
 	}
 	LSHADE_fitness_cvg_avg_file.close();
 

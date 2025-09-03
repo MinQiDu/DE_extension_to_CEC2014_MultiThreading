@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="cec14_test_func.cpp" />
     <ClCompile Include="DE.cpp" />
+    <ClCompile Include="iLSHADE.cpp" />
     <ClCompile Include="JADE.cpp" />
     <ClCompile Include="LSHADE.cpp" />
     <ClCompile Include="main.cpp" />
@@ -134,6 +135,8 @@
     <ClInclude Include="cec14_test_func.h" />
     <ClInclude Include="DE.h" />
     <ClInclude Include="DE_fileoutput.h" />
+    <ClInclude Include="iLSHADE.h" />
+    <ClInclude Include="iLSHADE_fileoutput.h" />
     <ClInclude Include="JADE.h" />
     <ClInclude Include="JADE_fileoutput.h" />
     <ClInclude Include="LSHADE.h" />

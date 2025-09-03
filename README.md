@@ -7,7 +7,8 @@
 DE,    
 JADE (Adaptive DE),    
 SHADE (Success-History based parameter Adaptation for DE),    
-L-SHADE (SHADE Using  Linear Population Size Reduction)
+L-SHADE (SHADE Using  Linear Population Size Reduction),   
+iL-SHADE (Improved L-SHADE)
 - **Benchmark functions:** 30 Benchmark Functions from IEEE CEC2014 (f1 \~ f30)
 - **Visualization:** Gnuplot
 - **Configurable parameters:** dimension, population size, control parameters, func_id, archive on/off
@@ -59,7 +60,7 @@ L-SHADE (SHADE Using  Linear Population Size Reduction)
 
 - `void ParaAdaptation()` *Adapts mCR and mF based on successful individuals*
 
-### `L-SHADE`
+### `L-SHADE` & `iL-SHADE`
 - `void RunALG(int dim, int pop_size, double mCR, double mF, double c, double p, int func_id, bool a_func)` *Main interface to run with given configuration*
 
 - `void Init()` *Initializes population within bounds for selected benchmark function*
@@ -123,9 +124,9 @@ For SHADE:
 - `archive_flag`: Use archive (1 = true, 0 = false)
 - `algo_type`: Type of Algorithm
 
-For L-SHADE:
+For L-SHADE & iL-SHADE:
 ```
-.exe {dim} {pop_size} {mCR} {mF} {H} {p} {func_id} {archive_flag} LSHADE
+.exe {dim} {pop_size} {mCR} {mF} {H} {p} {func_id} {archive_flag} LSHADE/ILSHADE
 ```
 
 - `dim`: Problem dimensionality (e.g., 30)
@@ -189,6 +190,18 @@ For L-SHADE:
 - `LSHADE_cvg_plot_func{fid}_dim{dim}_archive_{true|false}.png`
   - Convergence plot
 
+#### iL-SHADE
+- `iLSHADE_integrated_fitness.txt`
+  - Appended summary of all function tests
+- `iLSHADE_fitness_func{fid}_dim{dim}_archive_{true|false}.txt`
+  - Summary per run: best fitness per run, avg fitness
+- `iLSHADE_fitness_avg_cvg{fid}_dim{dim}_archive_{true|false}.txt`
+  - Best fitness at each evaluation
+- `plot_iLSHADE_func{fid}_dim{dim}_archive_{true|false}.plt`
+  - Gnuplot script
+- `iLSHADE_cvg_plot_func{fid}_dim{dim}_archive_{true|false}.png`
+  - Convergence plot
+
 ---
 
 ## ( V ) How to Compile & Run
@@ -216,6 +229,9 @@ For L-SHADE:
 
 // Run LSHADE for function f6, dim=30, with archive
 ./.exe 30 100 0.5 0.5 100 0.05 6 1 LSHADE
+
+// Run iLSHADE for function f6, dim=30, with archive
+./.exe 30 100 0.5 0.5 100 0.05 6 1 ILSHADE
 ```
 **Notice: You can click .bat files in folder docs to run jade.exe**
 
@@ -233,6 +249,9 @@ gnuplot plot_SHADE_func{fid}_dim{dim}_archive_{true|false}.plt
 
 // generate plot of L-SHADE in function {func_id}
 gnuplot plot_LSHADE_func{fid}_dim{dim}_archive_{true|false}.plt
+
+// generate plot of iL-SHADE in function {func_id}
+gnuplot plot_iLSHADE_func{fid}_dim{dim}_archive_{true|false}.plt
 ```
 ```
 // 當有以下文字紀錄:
@@ -240,9 +259,10 @@ gnuplot plot_LSHADE_func{fid}_dim{dim}_archive_{true|false}.plt
 // `JADE_fitness_avg_cvg{fid}_dim{dim}_archive_{true|false}.txt`
 // `SHADE_fitness_avg_cvg{fid}_dim{dim}_archive_{true|false}.txt`
 // `LSHADE_fitness_avg_cvg{fid}_dim{dim}_archive_{true|false}.txt`
+// `iLSHADE_fitness_avg_cvg{fid}_dim{dim}_archive_{true|false}.txt`
 
-// generate comparison plot between DE, JADE, SHADE and LSHADE
-gnuplot plot_compare_func{fid}_dim{dim}_archive_{true|false}.plt
+// generate comparison plot between DE, JADE, SHADE, L-SHADE and iL-SHADE
+gnuplot plot_compare_func{fid}_dim{dim}.plt
 ```
 
 ---
@@ -257,7 +277,8 @@ DE_extension_to_CEC2014/
 │   ├── JADE.cpp / JADE.h
 │   ├── SHADE.cpp / SHADE.h
 │   ├── LSHADE.cpp / LSHADE.h
-│   ├── DE_fileoutput.h / JADE_fileoutput.h / SHADE_fileoutput.h / LSHADE_fileoutput.h
+│   ├── iLSHADE.cpp / iLSHADE.h
+│   ├── DE_fileoutput.h / JADE_fileoutput.h / SHADE_fileoutput.h / LSHADE_fileoutput.h / iLSHADE_fileoutput.h
 │   ├── cec14_test_func.cpp / cec14_test_func.h
 │   └── input_data ← files for cec14_test_func.cpp
 ├── results/ ← output files (.txt, .png)
@@ -279,18 +300,27 @@ DE_extension_to_CEC2014/
 │   │  ├── SHADE_fitness_avg_cvg*.txt
 │   │  ├── SHADE_cvg_plot*.png
 │   │  └── plot_SHADE*.plt
+│   ├── LSHADE
+│   │  ├── LSHADE_integrated_fitness.txt
+│   │  ├── LSHADE_fitness_func*.txt
+│   │  ├── LSHADE_fitness_avg_cvg*.txt
+│   │  ├── LSHADE_cvg_plot*.png
+│   │  └── plot_LSHADE*.plt
+│   ├── iLSHADE
+│   │  ├── iLSHADE_integrated_fitness.txt
+│   │  ├── iLSHADE_fitness_func*.txt
+│   │  ├── iLSHADE_fitness_avg_cvg*.txt
+│   │  ├── iLSHADE_cvg_plot*.png
+│   │  └── plot_iLSHADE*.plt
 │   └── Compare
-│      ├── plot_compare_func{fid}_dim{dim}_archive_{true|false}.plt
-│      ├── compare_avg_cvg_plot_func{fid}_dim{dim}_archive_{true|false}.png ← convergence curves comparison of DE, JADE, SHADE and LSHADE
-│      ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 │      ├── all_plot_compare_func{fid}_dim{dim}.plt
-│      └── all_compare_avg_cvg_plot_func{fid}_dim{dim}.png ← convergence curves comparison of DE, JADE, SHADE and LSHADE in both with & w/o archive
+│      └── all_compare_avg_cvg_plot_func{fid}_dim{dim}.png ← convergence curves comparison of DE, JADE, SHADE, L-SHADE and iL-SHADE in both with archive
 ├── docs/
 │   ├── run_de_dim30.bat
 │   ├── run_jade_dim30_archive_false.bat
 │   ├── run_jade_dim30_archive_true.bat
 │   └── run_shade_dim30_archive_true.bat
-├── DE_extension_ExperimentResults.xlsx ← comparison results of DE, JADE, SHADE and LSHADE
+├── DE_extension_ExperimentResults.xlsx ← comparison results of DE, JADE, SHADE, L-SHADE and iL-SHADE
 └── README.md
 ```
 
@@ -298,131 +328,69 @@ DE_extension_to_CEC2014/
 
 ## ( VII ) Experimental Results
 
-### **Compared Convergence Plot of DE & JADE & SHADE & L-SHADE**
+### **Compared Convergence Plot of DE & JADE & SHADE & L-SHADE & iL-SHADE**
+### dimension 30
+<p align="center">
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func1_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func2_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func3_dim30.png" width="33%"/>
+</p>
+<p align="center">
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func4_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func5_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func6_dim30.png" width="33%"/>
+</p>
+<p align="center">
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func7_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func8_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func9_dim30.png" width="33%"/>
+</p>
+<p align="center">
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func10_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func11_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func12_dim30.png" width="33%"/>
+</p>
+<p align="center">
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func13_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func14_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func15_dim30.png" width="33%"/>
+</p>
+<p align="center">
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func16_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func17_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func18_dim30.png" width="33%"/>
+</p>
+<p align="center">
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func19_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func20_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func21_dim30.png" width="33%"/>
+</p>
+<p align="center">
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func22_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func23_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func24_dim30.png" width="33%"/>
+</p>
+<p align="center">
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func25_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func26_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func27_dim30.png" width="33%"/>
+</p>
+<p align="center">
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func28_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func29_dim30.png" width="33%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func30_dim30.png" width="33%"/>
+</p>
+
+---
 ### dimension 50
 <p align="center">
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func1_dim50.png" width="49%"/>
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func2_dim50.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func3_dim50.png" width="49%"/>
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func4_dim50.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func5_dim50.png" width="49%"/>
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func6_dim50.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func7_dim50.png" width="49%"/>
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func8_dim50.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func9_dim50.png" width="49%"/>
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func10_dim50.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func11_dim50.png" width="49%"/>
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func12_dim50.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func13_dim50.png" width="49%"/>
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func14_dim50.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func15_dim50.png" width="49%"/>
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func16_dim50.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func17_dim50.png" width="49%"/>
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func18_dim50.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func19_dim50.png" width="49%"/>
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func20_dim50.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func21_dim50.png" width="49%"/>
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func22_dim50.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func23_dim50.png" width="49%"/>
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func24_dim50.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func25_dim50.png" width="49%"/>
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func26_dim50.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func27_dim50.png" width="49%"/>
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func28_dim50.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func29_dim50.png" width="49%"/>
-  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func30_dim50.png" width="49%"/>
+  <img src="results/Compare/dim50/with_archive/" width="33%"/>
+  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func2_dim50.png" width="33%"/>
+  <img src="results/dim50/Compare/all_compare_avg_cvg_plot_func2_dim50.png" width="33%"/>
 </p>
 
 ---
 ### dimension 100
-<p align="center">
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func1_dim100.png" width="49%"/>
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func2_dim100.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func3_dim100.png" width="49%"/>
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func4_dim100.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func5_dim100.png" width="49%"/>
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func6_dim100.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func7_dim100.png" width="49%"/>
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func8_dim100.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func9_dim100.png" width="49%"/>
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func10_dim100.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func11_dim100.png" width="49%"/>
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func12_dim100.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func13_dim100.png" width="49%"/>
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func14_dim100.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func15_dim100.png" width="49%"/>
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func16_dim100.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func17_dim100.png" width="49%"/>
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func18_dim100.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func19_dim100.png" width="49%"/>
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func20_dim100.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func21_dim100.png" width="49%"/>
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func22_dim100.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func23_dim100.png" width="49%"/>
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func24_dim100.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func25_dim100.png" width="49%"/>
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func26_dim100.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func27_dim100.png" width="49%"/>
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func28_dim100.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func29_dim100.png" width="49%"/>
-  <img src="results/dim100/Compare/all_compare_avg_cvg_plot_func30_dim100.png" width="49%"/>
-</p>
 
 ---
 

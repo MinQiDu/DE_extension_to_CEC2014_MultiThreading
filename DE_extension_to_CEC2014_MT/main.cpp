@@ -2,6 +2,7 @@
 #include "JADE.h"
 #include "SHADE.h"
 #include "LSHADE.h"
+#include "iLSHADE.h"
 #include <string>
 #include <iostream>
 
@@ -79,9 +80,16 @@ int main(int argc, char* argv[])
 			algo_LSHADE algo;
 			algo.RunALG(dim, pop_size, mCR, mF, c, p, func_id, archive_flag);
 		}
+		else if (algo_type == "ILSHADE")
+		{
+			cout << "algo_type = " << algo_type << " | func_id = " << func_id << " | dim = " << dim << " | pop_size = " << pop_size <<
+				" | mCR = " << mCR << " | mF = " << mF << " | MCR & MF size = " << c << " | p = " << p << " | w/o archive list = " << (archive_flag ? "true" : "false") << endl;
+			algo_iLSHADE algo;
+			algo.RunALG(dim, pop_size, mCR, mF, c, p, func_id, archive_flag);
+		}
 		else
 		{
-			cout << "Invalid algorithm type. Please enter DE, JADE, SHADE or LSHADE." << endl;
+			cout << "Invalid algorithm type. Please enter DE, JADE, SHADE, LSHADE or ILSHADE." << endl;
 			canrun = 0; // 不符合條件，重新輸入
 			continue; // 跳過當前迴圈，重新輸入
 		}
