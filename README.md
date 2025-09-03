@@ -331,64 +331,54 @@ DE_extension_to_CEC2014/
 ### **Compared Convergence Plot of DE & JADE & SHADE & L-SHADE & iL-SHADE**
 ### dimension 30
 <p align="center">
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func1_dim30.png" width="49%"/>
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func2_dim30.png" width="49%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func1_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func2_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func3_dim30.png" width="30%"/>
 </p>
 <p align="center">
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func3_dim30.png" width="49%"/>
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func4_dim30.png" width="49%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func4_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func5_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func6_dim30.png" width="30%"/>
 </p>
 <p align="center">
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func5_dim30.png" width="49%"/>
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func6_dim30.png" width="49%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func7_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func8_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func9_dim30.png" width="30%"/>
 </p>
 <p align="center">
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func7_dim30.png" width="49%"/>
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func8_dim30.png" width="49%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func10_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func11_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func12_dim30.png" width="30%"/>
 </p>
 <p align="center">
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func9_dim30.png" width="49%"/>
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func10_dim30.png" width="49%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func13_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func14_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func15_dim30.png" width="30%"/>
 </p>
 <p align="center">
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func11_dim30.png" width="49%"/>
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func12_dim30.png" width="49%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func16_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func17_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func18_dim30.png" width="30%"/>
 </p>
 <p align="center">
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func13_dim30.png" width="49%"/>
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func14_dim30.png" width="49%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func19_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func20_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func21_dim30.png" width="30%"/>
 </p>
 <p align="center">
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func15_dim30.png" width="49%"/>
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func16_dim30.png" width="49%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func22_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func23_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func24_dim30.png" width="30%"/>
 </p>
 <p align="center">
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func17_dim30.png" width="49%"/>
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func18_dim30.png" width="49%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func25_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func26_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func27_dim30.png" width="30%"/>
 </p>
 <p align="center">
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func19_dim30.png" width="49%"/>
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func20_dim30.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func21_dim30.png" width="49%"/>
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func22_dim30.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func23_dim30.png" width="49%"/>
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func24_dim30.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func25_dim30.png" width="49%"/>
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func26_dim30.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func27_dim30.png" width="49%"/>
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func28_dim30.png" width="49%"/>
-</p>
-<p align="center">
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func29_dim30.png" width="49%"/>
-  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func30_dim30.png" width="49%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func28_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func29_dim30.png" width="30%"/>
+  <img src="results/Compare/dim30/with_archive/all_compare_avg_cvg_plot_func30_dim30.png" width="30%"/>
 </p>
 
 ---
