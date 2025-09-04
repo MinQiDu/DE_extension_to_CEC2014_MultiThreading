@@ -626,8 +626,6 @@ iL-SHADE
   **平滑成功史記憶：** 以成功加權均值並與既有記憶混合更新 \(M_F, M_{CR}\)，降低方差。
 - **High-parameter slot injection:** maintained a fixed \((M_F,M_{CR})\) cell to enable controlled large steps.  
   **高參數槽注入：** 維持固定 \((M_F,M_{CR})\) 記憶槽，提供可控的大步探索。
-- **Clean integration with LPSR & archive:** modular mutation/crossover, safe boundary handling, seamless plotting logs.  
-  **無縫整合 LPSR 與檔案庫：** 模組化突變/交配、穩健邊界處理、整合繪圖記錄。
 
 ---
 
