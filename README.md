@@ -333,6 +333,9 @@ DE_extension_to_CEC2014/
 <img src="results/KEY.png" width="25%"/>
 </p>
 <p align="center">
+  <img src="results/EXPERIMENTAL RESULTS OF 10-DIMENSIONAL PROBLEMS.png" width="100%"/>
+</p>
+<p align="center">
   <img src="results/EXPERIMENTAL RESULTS OF 30-DIMENSIONAL PROBLEMS.png" width="100%"/>
 </p>
 <p align="center">
