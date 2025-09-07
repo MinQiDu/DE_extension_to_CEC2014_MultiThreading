@@ -586,6 +586,18 @@ SHADE
 - More aggressive convergence in early stages, focused refinement later
 初期加強探索，後期集中局部優化
 
+iL-SHADE
+- Inherits L-SHADE core: current-to-pbest/1/bin, success-history memory, external archive, and **LPSR**.  
+  繼承 L-SHADE 核心：current-to-pbest/1/bin、成功歷史記憶、外部檔案庫與 **LPSR**。
+- **p scheduling by nfes:**  
+  `p = p_max - ((p_max - p_min) / max_nfes) * nfes` ，其中 `p_max = 0.2`、`p_min = 0.1`；並且強制 `p >= 2/NP`。  
+  **以評估次數排程 p：** 線性由 `0.2` 降至 `0.1`，同時保留 `p >= 2/NP` 的安全下限。
+- **Guardrails for parameters:** early **F upper-bound** and **CR lower-bound** schedule.  
+  **參數護欄：** 早期對 `F` 設上限、對 `CR` 設下限（例如：前 25% 預算 `F <= 0.7`、`CR >= 0.5`；前 50% `F <= 0.8`；前 75% `F <= 0.9`，之後放寬到常規）。
+- **Smoothed memory update:** blend previous `M_F`, `M_CR` with success-weighted means (EMA-like) to avoid sudden shifts.  
+  **平滑記憶更新：** 將前一代的 `M_F`、`M_CR` 與本代成功加權均值混合，降低參數震盪。
+- **Fixed high-parameter memory cell** (e.g., `M_F = 0.9`, `M_CR = 0.9`) for occasional aggressive trials.  
+  **固定高參數記憶槽：** 例如 `M_F = 0.9`、`M_CR = 0.9`，保留偶發的大步探索。
 
 
 
